@@ -1,13 +1,13 @@
 import React from 'react';
 import './UrlContainer.css';
 
-const UrlContainer = props => {
+const UrlContainer = props => { 
   const urlEls = props.urls.map(url => {
     return (
       <div className="url">
-        <h3>{url.title}</h3>
-        <a href={url.short_url} target="blank">{url.short_url}</a>
-        <p>{url.long_url}</p>
+        <h3>{url.urls[0].title}</h3>
+        <a href={url.urls[0].short_url} target="blank">{url.urls[0].short_url}</a>
+        <p>{url.urls[0].long_url}</p>
       </div>
     )
   });
