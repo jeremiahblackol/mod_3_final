@@ -1,16 +1,13 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import UrlContainer from "./UrlContainer"
-// import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom'
 
 
-// jest.mock('../ApiCalls')
 
 describe ( 'UrlContainer', () => {
 
     let mockedProps;
-    let mockedUrlsInState;
     beforeEach(() => {
         mockedProps = {
             urls: [
