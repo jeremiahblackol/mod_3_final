@@ -20,11 +20,12 @@ export class App extends Component {
 
   addUrlToState = async () => {
     const retrievedUrl = await getUrls()
-      this.setState({ urls: [retrievedUrl]})
+    this.setState({ urls: [retrievedUrl]})
   }
 
   urlPostRequest = (longUrl, urlTitle) => {
     postUrls(longUrl, urlTitle)
+    console.log(this.state.urls)
   }
 
   render() {

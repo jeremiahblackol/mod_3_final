@@ -3,13 +3,16 @@ import './UrlContainer.css';
 
 const UrlContainer = props => { 
   const urlEls = props.urls.map(url => {
-    return (
-      <div className="url">
-        <h3>{url.urls[0].title}</h3>
-        <a href={url.urls[0].short_url} target="blank">{url.urls[0].short_url}</a>
-        <p>{url.urls[0].long_url}</p>
-      </div>
-    )
+    return url.urls.map((individualUrl) => {
+      return (
+        <div className="url">
+          <h3>{individualUrl.title}</h3>
+          <a href={individualUrl.short_url} target="blank">{individualUrl.short_url}</a>
+          <p>{individualUrl.long_url}</p>
+        </div>
+      )
+    })
+
   });
 
   return (
