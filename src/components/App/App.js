@@ -20,7 +20,6 @@ export class App extends Component {
 
   addUrlToState = async () => {
     const retrievedUrl = await getUrls()
-    console.log("async", retrievedUrl)
       this.setState({ urls: [retrievedUrl]})
   }
 
