@@ -28,5 +28,18 @@ describe ( 'UrlForm', () => {
     fireEvent.click(submitButton)
 
     expect(postUrls).toBeCalledTimes(1)
-  })
+  });
+
+  it('Should know input values', () => {
+    const { getByPlaceholderText } = render(<UrlForm />)
+    const titleInput = getByPlaceholderText("Title...")
+    const urlInput = getByPlaceholderText("URL to Shorten...")
+
+    fireEvent.change(titleInput, { target: { value: "a title" }})
+    fireEvent.change(urlInput, { target: { value: "a long string of text to see" }})
+
+
+    expect(titleInput).toBeInTheDocument()
+    expect(urlInput).toBeInTheDocument()
+});
 });
