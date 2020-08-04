@@ -2,6 +2,7 @@ import React from 'react';
 import './UrlContainer.css';
 
 const UrlContainer = props => { 
+  console.log(props.urls[0])
   const urlEls = props.urls.map(url => {
     return url.urls.map((individualUrl) => {
       return (
