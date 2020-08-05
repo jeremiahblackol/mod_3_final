@@ -6,8 +6,7 @@ import {getUrls, postUrls } from '../../apiCalls'
 jest.mock('../../apiCalls');
 
 getUrls.mockResolvedValue({
-  urls: [
-    {
+  urls: [{
       id: 1,
       long_url: 'https://images.unsplash.com/480b7090470f?ixlib=auto=format&fit=crop&w=934&q=80',
       short_url: 'http://localhost:3001/useshorturl/1',
