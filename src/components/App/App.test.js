@@ -21,6 +21,13 @@ getUrls.mockResolvedValue({
     }]
 })
 
+postUrls.mockResolvedValue({
+  id: 3,
+  long_url: "aaaaeeeeiiiioooouuuu.org",
+  short_url: 'http://localhost:3001/useshorturl/3',
+  title: 'Hello all'
+})
+
 
 describe('App', () => {
 
@@ -42,6 +49,27 @@ describe('App', () => {
   })
 
   it('Should render submitted urls', async () => {
+    getUrls.mockResolvedValueOnce({
+      urls: [
+        {
+          id: 1,
+          long_url: 'https://images.unsplash.com/480b7090470f?ixlib=auto=format&fit=crop&w=934&q=80',
+          short_url: 'http://localhost:3001/useshorturl/1',
+          title: 'A thing'
+        },
+        {
+          id: 2,
+          long_url: 'https://images.unsplash.com/xlib=rb-1.2.1&ixid=eyfit=crop&w=934&q=80',
+          short_url: 'http://localhost:3001/useshorturl/2',
+          title: 'Another thing'
+        },
+        {
+          id: 3,
+          long_url: "aaaaeeeeiiiioooouuuu.org",
+          short_url: 'http://localhost:3001/useshorturl/3',
+          title: 'Hello all'
+        }]
+    })
     
     const { getByRole, getByPlaceholderText, getByText } = render(<App />)
 
@@ -55,16 +83,15 @@ describe('App', () => {
     expect(titleInput.value).toBe("Hello all")
     expect(urlInput.value).toBe("aaaaeeeeiiiioooouuuu.org")
 
-    // console.log("title input b4", titleInput.value)
     const submitButton = getByRole('button')
     fireEvent.click(submitButton)
 
-    // console.log("title input after", titleInput.value)
+
     expect(postUrls).toBeCalledTimes(1)
 
-    // const newTitle = await waitFor(() => getByText("Hello all"))
+    const newTitle = await waitFor(() => getByText("Hello all"))
 
-    // expect(newTitle).toBeInTheDocument();
+    expect(newTitle).toBeInTheDocument();
     })
   })
 

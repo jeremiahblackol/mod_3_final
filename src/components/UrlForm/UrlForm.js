@@ -18,6 +18,7 @@ class UrlForm extends Component {
     e.preventDefault();
     this.clearInputs();
     this.props.postUrls(this.state.urlToShorten, this.state.title)
+    console.log("the post method is firing on submit")
   }
 
   clearInputs = () => {
