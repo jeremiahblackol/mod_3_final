@@ -26,7 +26,7 @@ export class App extends Component {
 
   urlPostRequest = (longUrl, urlTitle) => {
     postUrls(longUrl, urlTitle)
-    console.log(this.state.urls)
+    this.addUrlToState()
   }
 
   render() {
@@ -34,7 +34,7 @@ export class App extends Component {
       <main className="App">
         <header>
           <h1>URL Shortener</h1>
-          <UrlForm postUrls={this.urlPostRequest}/>
+          <UrlForm postUrls={this.urlPostRequest} getUrls={this.addUrlToState}/>
         </header>
 
         <UrlContainer urls={this.state.urls}/>

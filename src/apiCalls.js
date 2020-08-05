@@ -18,6 +18,5 @@ export const postUrls = async (longUrl, urlTitle) => {
   
 const response = await fetch('http://localhost:3001/api/v1/urls', request);
 const message = await response.json();
-console.log("message in api call", message)
 return message;
 }
